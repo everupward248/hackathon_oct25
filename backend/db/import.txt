@@ -1,0 +1,8 @@
+# statement for jobs table 
+\copy jobs(job_post_id, job_title, status, created_date, start_date, end_date, cig_sagc, work_type, employer, location, occupation, sub_industry, industry) FROM 'C:/Users/johnj/OneDrive/Documents/hackathon/oct_25/backend/data/job_data_csv.csv' WITH (FORMAT csv, HEADER true);
+
+# statement for renumerations
+\copy renumerations(job_post_id, hours_per_week, currency, pay_frequency, description, min_salary, max_salary, annualised_min, annualised_max, mean_annualised_salary) FROM 'C:/Users/johnj/OneDrive/Documents/hackathon/oct_25/backend/data/salary_data_csv.csv' WITH (FORMAT csv, HEADER true);
+
+# statement for experiences
+\copy experiences(job_post_id, required_education_level, years_experience) FROM 'C:/Users/johnj/OneDrive/Documents/hackathon/oct_25/backend/data/experience_data.csv' WITH (FORMAT csv, HEADER true);
