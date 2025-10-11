@@ -1,6 +1,6 @@
 from configparser import ConfigParser
 
-def config(filename="database.ini", section="postgresql"):
+def config(filename="C:/Users/johnj/OneDrive/Documents/hackathon/oct_25/backend/functions/database.ini", section="postgresql"):
     #Create an object parser which is equal to the ConfigParser class
     parser = ConfigParser()
     #read the config file

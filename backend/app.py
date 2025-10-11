@@ -1,5 +1,5 @@
-from flask import Flask, render_template, session, redirect, flash, request, url_for
-import functions as func
+from flask import Flask, request, jsonify
+from backend.functions import db_conn
 
 app = Flask(__name__)
 
@@ -7,11 +7,10 @@ app = Flask(__name__)
 def index():
     if request.method == "GET":
         try:
-            
-
-
-        return "hello"
-
+            all = db_conn.get_all()
+            return jsonify(all), 200
+        except Exception as e:
+            print(e)
 
 if __name__ == "__main__":
     app.run(debug=True)
