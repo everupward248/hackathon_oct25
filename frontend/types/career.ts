@@ -44,3 +44,45 @@ export interface EducationRecommendation {
   estimated_time: string;
   priority: "high" | "medium" | "low";
 }
+
+// Enhanced types for detailed pathway visualization
+export interface SkillRequirement {
+  name: string;
+  level: 'Beginner' | 'Intermediate' | 'Advanced' | 'Expert';
+  category: 'Technical' | 'Soft' | 'Industry-Specific';
+  currentLevel?: 'None' | 'Beginner' | 'Intermediate' | 'Advanced' | 'Expert';
+}
+
+export interface SkillGapDetail {
+  skill: string;
+  currentLevel: 'None' | 'Beginner' | 'Intermediate' | 'Advanced' | 'Expert';
+  requiredLevel: 'Beginner' | 'Intermediate' | 'Advanced' | 'Expert';
+  gapSize: number; // 0-100, percentage of gap to close
+  recommendedActions: string[];
+  estimatedTimeToClose: string;
+  category: 'Technical' | 'Soft' | 'Industry-Specific';
+}
+
+export interface FinancialProjection {
+  year: number;
+  age?: number;
+  role: string;
+  salary: number;
+  cumulativeIncome: number;
+  educationCost: number;
+  cumulativeCost: number;
+  netGain: number;
+  lifestyleAffordability: boolean; // Can afford target lifestyle
+  lifestyleCost?: number;
+}
+
+export interface PathwayMetrics {
+  totalDuration: string;
+  totalEducationCost: number;
+  salaryIncrease: number;
+  salaryIncreasePercentage: number;
+  breakEvenPoint: string; // When investment is recovered
+  roi: number; // Return on investment percentage
+  difficulty: 'Low' | 'Medium' | 'High';
+  marketDemand: 'Low' | 'Medium' | 'High';
+}

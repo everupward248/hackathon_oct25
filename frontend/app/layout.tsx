@@ -13,6 +13,7 @@ import { ThemeProvider } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v15-appRouter";
 import theme from "../theme";
+import { Navigation } from "@/components/ui";
 
 export const metadata: Metadata = {
   title: "Cayman Career Mapper - Lifestyle to Career Planning",
@@ -30,6 +31,7 @@ export default function RootLayout({
         <AppRouterCacheProvider>
           <ThemeProvider theme={theme}>
             <CssBaseline />
+            <Navigation />
             {children}
           </ThemeProvider>
         </AppRouterCacheProvider>

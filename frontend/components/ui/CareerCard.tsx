@@ -19,6 +19,7 @@ import {
 } from '@mui/icons-material';
 
 interface CareerCardProps {
+  id?: string;
   title: string;
   company: string;
   salaryMin?: number;
@@ -29,10 +30,12 @@ interface CareerCardProps {
   industry?: string;
   companyLogo?: string;
   onViewDetails?: () => void;
+  onViewPathway?: () => void;
   onSave?: () => void;
 }
 
 export const CareerCard: React.FC<CareerCardProps> = ({
+  id,
   title,
   company,
   salaryMin,
@@ -43,6 +46,7 @@ export const CareerCard: React.FC<CareerCardProps> = ({
   industry,
   companyLogo,
   onViewDetails,
+  onViewPathway,
   onSave,
 }) => {
   const formatSalary = (amount: number) => {
@@ -178,18 +182,32 @@ export const CareerCard: React.FC<CareerCardProps> = ({
       </CardContent>
 
       <CardActions sx={{ p: 2, pt: 0 }}>
-        <Stack direction="row" spacing={1} sx={{ width: '100%' }}>
-          <Button
-            variant="contained"
-            color="primary"
-            fullWidth
-            onClick={onViewDetails}
-          >
-            View Details
-          </Button>
-          {onSave && (
-            <Button variant="outlined" color="primary" onClick={onSave}>
-              Save
+        <Stack direction="column" spacing={1} sx={{ width: '100%' }}>
+          <Stack direction="row" spacing={1}>
+            {onViewDetails && (
+              <Button
+                variant="contained"
+                color="primary"
+                fullWidth
+                onClick={onViewDetails}
+              >
+                View Details
+              </Button>
+            )}
+            {onSave && (
+              <Button variant="outlined" color="primary" onClick={onSave}>
+                Save
+              </Button>
+            )}
+          </Stack>
+          {onViewPathway && (
+            <Button
+              variant="outlined"
+              color="secondary"
+              fullWidth
+              onClick={onViewPathway}
+            >
+              View Career Pathway
             </Button>
           )}
         </Stack>
